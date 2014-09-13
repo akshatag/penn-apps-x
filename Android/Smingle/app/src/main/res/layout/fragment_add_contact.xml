@@ -7,13 +7,12 @@
         android:id="@+id/etName"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:ellipsize="start"
         android:ems="10"
         android:gravity="center"
-        android:hint="Your Name"
         android:inputType="textPersonName" />
+
 
     <EditText
         android:id="@+id/etPhone"
@@ -24,7 +23,6 @@
         android:ellipsize="start"
         android:ems="10"
         android:gravity="center"
-        android:hint="Phone"
         android:inputType="phone" />
 
     <EditText
@@ -34,7 +32,42 @@
         android:layout_below="@+id/etPhone"
         android:layout_centerHorizontal="true"
         android:ellipsize="start"
-        android:gravity="center"
-        android:hint="Caption" />
-    
+        android:gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Your Name"
+        android:paddingTop="15dp"
+        android:id="@+id/labelName"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff1abc9c"
+        android:typeface="sans"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Number"
+        android:paddingTop="15dp"
+        android:id="@+id/labelNumber"
+        android:layout_alignTop="@+id/etPhone"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff1abc9c"
+        android:typeface="sans"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Caption"
+        android:paddingTop="15dp"
+        android:id="@+id/labelCaption"
+        android:layout_alignTop="@+id/etCaption"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff1abc9c"
+        android:typeface="sans"/>
+
 </RelativeLayout>
