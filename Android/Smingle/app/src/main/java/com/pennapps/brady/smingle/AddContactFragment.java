@@ -2,12 +2,11 @@ package com.pennapps.brady.smingle;
 
 
 
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 
 
 /**
@@ -16,9 +15,8 @@ import android.view.ViewGroup;
  */
 public class AddContactFragment extends android.support.v4.app.Fragment {
 
-
     public AddContactFragment() {
-        // Required empty public constructor
+
     }
 
 
