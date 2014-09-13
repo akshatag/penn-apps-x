@@ -6,7 +6,12 @@
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_height="140dp"
+=======
+        android:layout_height="110dp"
+        android:layout_alignParentTop="true"
+>>>>>>> fd43ad126d1e43d89d36d61b47dfbfbe3002d536
         android:layout_centerHorizontal="true"
         android:ellipsize="start"
         android:ems="10"
@@ -17,7 +22,7 @@
     <EditText
         android:id="@+id/etPhone"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="110dp"
         android:layout_below="@+id/etName"
         android:layout_centerHorizontal="true"
         android:ellipsize="start"
@@ -28,10 +33,11 @@
     <EditText
         android:id="@+id/etCaption"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="110dp"
         android:layout_below="@+id/etPhone"
         android:layout_centerHorizontal="true"
         android:ellipsize="start"
+<<<<<<< HEAD
         android:gravity="center" />
 
     <TextView
@@ -69,5 +75,19 @@
         android:layout_centerHorizontal="true"
         android:textColor="#ff1abc9c"
         android:typeface="sans"/>
+=======
+        android:gravity="center"
+        android:hint="Caption" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ibSubmit"
+        android:src="@drawable/submit"
+        android:background="@null"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+>>>>>>> fd43ad126d1e43d89d36d61b47dfbfbe3002d536
 
 </RelativeLayout>
