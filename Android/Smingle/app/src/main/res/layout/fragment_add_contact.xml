@@ -18,7 +18,7 @@
     <EditText
         android:id="@+id/etPhone"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="140dp"
         android:layout_below="@+id/etName"
         android:layout_centerHorizontal="true"
         android:ellipsize="start"
@@ -29,7 +29,7 @@
     <EditText
         android:id="@+id/etCaption"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
+        android:layout_height="140dp"
         android:layout_below="@+id/etPhone"
         android:layout_centerHorizontal="true"
         android:ellipsize="start"
