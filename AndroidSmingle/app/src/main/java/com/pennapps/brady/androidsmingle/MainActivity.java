@@ -1,7 +1,8 @@
 package com.pennapps.brady.androidsmingle;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.ActionBar;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,6 +13,13 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ActionBar actionBar = getActionBar();
+        ActionBar.Tab quizTab = actionBar.newTab();
+        quizTab.setText("Quizzes");
+        ActionBar.Tab addContactTab = actionBar.newTab();
+        quizTab.setText("Add Contact");
+        ActionBar.Tab profilesTab = actionBar.newTab();
+        quizTab.setText("Profiles");
     }
 
 
