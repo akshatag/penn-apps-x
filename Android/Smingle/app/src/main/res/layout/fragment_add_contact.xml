@@ -1,86 +1,94 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:scrollbars="none"
+    android:clickable="false">
 
 
     <EditText
         android:id="@+id/etName"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_height="150dp"
         android:ellipsize="start"
         android:ems="10"
-        android:gravity="center"
-        android:inputType="textPersonName" />
-
+        android:background='#6AA84F'
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="Name"
+        android:textSize="50sp"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:inputType="textPersonName"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/ivSelfie"
+        android:layout_alignEnd="@+id/ivSelfie" />
 
     <EditText
         android:id="@+id/etPhone"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_below="@+id/etName"
-        android:layout_centerHorizontal="true"
+        android:layout_height="150dp"
         android:ellipsize="start"
+        android:textAlignment="center"
         android:ems="10"
-        android:gravity="center"
-        android:inputType="phone" />
+        android:textSize="50sp"
+        android:textColorHint="#ffffff"
+        android:textColor="#ffffff"
+        android:background='#3D85C6'
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="Number"
+        android:inputType="phone"
+        android:layout_below="@+id/etName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/etCaption"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
-        android:layout_below="@+id/etPhone"
-        android:layout_centerHorizontal="true"
+        android:textColorHint="#ffffff"
+        android:textSize="50sp"
+        android:textColor="#ffffff"
+        android:background='#674EA7'
+        android:layout_height="150dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="Caption"
+        android:textAlignment="center"
         android:ellipsize="start"
-        android:gravity="center" />
+        android:layout_below="@+id/etPhone"
+        android:layout_alignRight="@+id/ivSelfie"
+        android:layout_alignEnd="@+id/ivSelfie" />
 
-    <TextView
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Your Name"
-        android:paddingTop="15dp"
-        android:id="@+id/labelName"
-        android:layout_alignParentTop="true"
+        android:id="@+id/ivSelfie"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/etCaption" />
+
+    <EditText
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:textColorHint="#ffffff"
+        android:textSize="45sp"
+        android:textColor="#ffffff"
+        android:background="#1abc9c"
+        android:layout_height="150dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:hint="Caption"
+        android:textAlignment="center"
+        android:ellipsize="start"
         android:layout_centerHorizontal="true"
-        android:textColor="#ff1abc9c"
-        android:typeface="sans"/>
+        android:layout_below="@+id/etCaption"
+        android:text="OK" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="115dp"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Number"
-        android:paddingTop="15dp"
-        android:id="@+id/labelNumber"
-        android:layout_alignTop="@+id/etPhone"
+        android:id="@+id/imageView"
+        android:src="@drawable/ok_circle2"
         android:layout_centerHorizontal="true"
-        android:textColor="#ff1abc9c"
-        android:typeface="sans"/>
+        android:layout_below="@+id/etCaption" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Caption"
-        android:paddingTop="15dp"
-        android:id="@+id/labelCaption"
-        android:layout_alignTop="@+id/etCaption"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ff1abc9c"
-        android:typeface="sans"/>
-        android:gravity="center"
-        android:hint="Caption" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/ibSubmit"
-        android:src="@drawable/submit"
-        android:background="@null"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

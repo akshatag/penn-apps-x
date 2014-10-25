@@ -2,9 +2,9 @@ package com.pennapps.brady.smingle;
 
 import android.app.ActionBar;
 import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.hardware.Camera;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,16 +16,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener {
+public class MainActivity extends FragmentActivity
+        implements ActionBar.TabListener
+        {
 
     private static final String TAG = "FragMainActivity";
 
@@ -36,6 +35,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     private EditText etCaption;
     private Camera mCamera;
     private CameraPreview mPreview;
+    private ImageView ivSelfie;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,20 +50,21 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         etName = (EditText) findViewById(R.id.etName);
         etPhone = (EditText) findViewById(R.id.etPhone);
         etCaption = (EditText) findViewById(R.id.etCaption);
+        ivSelfie = (ImageView) findViewById(R.id.ivSelfie);
     }
 
     public void addContact(View view) {
         mCamera = openFrontFacingCamera();
         mPreview = new CameraPreview(this, mCamera);
-        FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
-        preview.addView(mPreview);
+//        FrameLayout preview = (FrameLayout) findViewById(R.id.camera_preview);
+//        preview.addView(mPreview);
 
         takePictureIn5();
     }
 
     private void takePictureIn5() {
         Handler mHanlder = new Handler();
-        Toast.makeText(this, "Try to look sober!", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Taking picture!!", Toast.LENGTH_LONG).show();
         mHanlder.postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -97,27 +98,27 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         @Override
         public void onPictureTaken(byte[] data, Camera camera) {
             Log.e(TAG, "Entered picture callback");
-//            Bitmap photoBitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
-//            mImage.setImageBitmap(photoBitmap);
-            preview.removeAllViews();
+            Bitmap photoBitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
+            ivSelfie.setImageBitmap(photoBitmap);
+//            preview.removeAllViews();
             Log.e(TAG, "removed Preview SurfaceView");
             mCamera.release();
             Log.e(TAG, "released the camera");
 
             FileOutputStream pictureOutputStream;
 
-            try {
-                pictureOutputStream = openFileOutput(PICTURE_FILE_NAME, Context.MODE_PRIVATE);
-                pictureOutputStream.write(data);
-                pictureOutputStream.close();
-            } catch (FileNotFoundException e) {
-                Log.d(TAG, "File not found: " + e.getMessage());
-            } catch (IOException e) {
-                Log.d(TAG, "Error accessing file: " + e.getMessage());
-            }
-
-            File imagePath = getFileStreamPath(PICTURE_FILE_NAME);
-            mImage.setImageDrawable(Drawable.createFromPath(imagePath.toString()));
+//            try {
+//                pictureOutputStream = openFileOutput(PICTURE_FILE_NAME, Context.MODE_PRIVATE);
+//                pictureOutputStream.write(data);
+//                pictureOutputStream.close();
+//            } catch (FileNotFoundException e) {
+//                Log.d(TAG, "File not found: " + e.getMessage());
+//            } catch (IOException e) {
+//                Log.d(TAG, "Error accessing file: " + e.getMessage());
+//            }
+//
+//            File imagePath = getFileStreamPath(PICTURE_FILE_NAME);
+//            mImage.setImageDrawable(Drawable.createFromPath(imagePath.toString()));
 
             insertContact();
 
@@ -125,9 +126,9 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     };
 
     private void insertContact() {
-        Handler mHanlder = new Handler();
+        Handler mHandler = new Handler();
         Toast.makeText(this, "Preparing to add contact...", Toast.LENGTH_LONG).show();
-        mHanlder.postDelayed(new Runnable() {
+        mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 String name = etName.getText().toString();
@@ -141,6 +142,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
                 startActivity(contactIntent);
             }
         }, 5000);
+    }
 
     private void setupPagerAndActionBar() {
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -217,5 +219,5 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     @Override
     public void onTabReselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
 //        Log.e(TAG, "onTabReselected at position: " + tab.getPosition() + " name: " + tab.getText());
-    }
+   }
 }
